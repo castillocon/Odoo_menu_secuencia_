@@ -1,0 +1,25 @@
+# Lista de IDs de los menús a cambiar
+# ============================================================================================================
+# 802 = Asistencia 
+# 234 = Tablero 
+# 218 = Proyecto 
+# 238 = Facturacion 
+# 1020 = Mensajes 
+# 548 = Ventas 
+# 456 = Querydeluxe
+
+ # Reemplaza con los IDs de tus menús , En la URL del navegador, verás el ID del menú. Menu_id
+# ============================================================================================================
+menu_ids = [802, 234, 218, 238, 1020, 136, 82, 548, 456] 
+
+# Lista de nuevas secuencias correspondientes a los menús
+# ============================================================================================================
+secuencias = [-105, -100, -95, -90, -85, -80, -75, -70, -65]  # Reemplaza con las nuevas secuencias deseadas
+
+
+# Iterar sobre los IDs de los menús y las secuencias
+# ============================================================================================================
+for menu_id, nueva_secuencia in zip(menu_ids, secuencias):
+    menu_obj = env['ir.ui.menu'].browse(menu_id)
+    if menu_obj:
+        menu_obj.write({'sequence': nueva_secuencia})
